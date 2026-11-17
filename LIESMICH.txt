@@ -1,0 +1,19 @@
+WURST & SPECK – App für Tata
+============================
+
+Testen am PC:
+  In VS Code die Erweiterung "Live Server" installieren,
+  dann Rechtsklick auf index.html -> "Open with Live Server".
+  (Einfach Doppelklick auf index.html geht auch, dann aber ohne Offline-Funktion.)
+
+Aufs Handy bringen (gratis):
+  1. Auf github.com ein neues Repository anlegen (z. B. "wurst-app").
+  2. Alle Dateien aus diesem Ordner hochladen.
+  3. Settings -> Pages -> Branch "main" auswählen -> Save.
+  4. Nach 1-2 Minuten gibt es einen Link wie https://DEINNAME.github.io/wurst-app/
+  5. Tata öffnet den Link am Handy -> Menü -> "Zum Startbildschirm hinzufügen".
+
+Wichtig:
+  - Die Daten sind nur auf Tatas Handy gespeichert.
+  - Beim ersten Start zuerst oben rechts beim Zahnrad die Preise pro kg eintragen.
+  - Wenn du Dateien änderst: in sw.js die Version erhöhen (v1 -> v2).

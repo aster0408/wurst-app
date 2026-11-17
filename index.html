@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#A3352B">
+  <title>Wurst &amp; Speck</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Wurst & Speck">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== SCREEN 1: NAMENSLISTE ========== -->
+  <main id="screen-liste" class="screen">
+    <header class="kopf">
+      <div class="kopf-zeile">
+        <div>
+          <p class="untertitel">Wurst &amp; Speck</p>
+          <h1>Kunden</h1>
+        </div>
+        <button type="button" class="icon-knopf" id="btn-einstellungen" aria-label="Preise einstellen">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <div id="hinweis-preise" class="hinweis" hidden>
+      Bitte zuerst die Preise pro kg einstellen.
+      <button type="button" class="link-knopf" id="btn-hinweis-preise">Jetzt einstellen</button>
+    </div>
+
+    <div class="offen-box">
+      <span>Noch offen</span>
+      <strong id="offen-summe">0,00 €</strong>
+    </div>
+
+    <ul id="namensliste" class="liste"></ul>
+
+    <div class="liste-unten">
+      <button type="button" id="btn-neu" class="plus-knopf">
+        <span class="plus-kreis" aria-hidden="true">+</span>
+        Neue Person
+      </button>
+      <form id="form-neu" class="karte neu-form" hidden>
+        <div class="feld">
+          <label for="neuer-name">Name der neuen Person</label>
+          <input id="neuer-name" type="text" autocomplete="off" placeholder="z. B. Martin">
+        </div>
+        <button type="submit" class="knopf-klein">Hinzufügen</button>
+      </form>
+      <button type="button" id="btn-zur-uebersicht" class="knopf-dunkel">Zur Übersicht</button>
+    </div>
+  </main>
+
+  <!-- ========== SCREEN 2: KILOS EINTRAGEN ========== -->
+  <main id="screen-eintragen" class="screen" hidden>
+    <header class="kopf">
+      <button type="button" class="zurueck" data-gehe="liste">‹ Namensliste</button>
+      <h1 id="eintragen-name">Name</h1>
+      <p class="grau">Wie viel bekommt diese Person?</p>
+    </header>
+
+    <div class="inhalt">
+      <section class="karte">
+        <div class="karte-kopf">
+          <label for="kg-speck" class="karte-titel">Speck</label>
+          <span class="grau klein"><span id="preis-speck-anzeige">0,00 €</span> pro kg</span>
+        </div>
+        <div class="eingabe-zeile">
+          <input id="kg-speck" type="text" inputmode="decimal" placeholder="0,0" autocomplete="off">
+          <span class="einheit">kg</span>
+        </div>
+        <div class="zwischen"><span>Zwischensumme</span><strong id="summe-speck">0,00 €</strong></div>
+      </section>
+
+      <section class="karte">
+        <div class="karte-kopf">
+          <label for="kg-wurst" class="karte-titel">Wurst</label>
+          <span class="grau klein"><span id="preis-wurst-anzeige">0,00 €</span> pro kg</span>
+        </div>
+        <div class="eingabe-zeile">
+          <input id="kg-wurst" type="text" inputmode="decimal" placeholder="0,0" autocomplete="off">
+          <span class="einheit">kg</span>
+        </div>
+        <div class="zwischen"><span>Zwischensumme</span><strong id="summe-wurst">0,00 €</strong></div>
+      </section>
+
+      <p class="grau klein">Kommazahlen gehen, z. B. 1,5 oder 0,75 kg.</p>
+      <button type="button" id="btn-loeschen" class="link-knopf rot">Person löschen</button>
+    </div>
+
+    <footer class="fuss">
+      <div class="gesamt-zeile">
+        <span class="grau">Gesamtpreis</span>
+        <strong id="gesamt-preis">0,00 €</strong>
+      </div>
+      <button type="button" id="btn-fertig" class="knopf-rot">Fertig</button>
+    </footer>
+  </main>
+
+  <!-- ========== SCREEN 3: ÜBERSICHT ========== -->
+  <main id="screen-uebersicht" class="screen" hidden>
+    <header class="kopf">
+      <p class="untertitel">Wurst &amp; Speck</p>
+      <h1>Übersicht</h1>
+    </header>
+
+    <div class="summen">
+      <div class="summe-box"><span>Gesamt</span><strong id="sum-gesamt">0,00 €</strong></div>
+      <div class="summe-box gruen"><span>Bezahlt</span><strong id="sum-bezahlt">0,00 €</strong></div>
+      <div class="summe-box orange"><span>Offen</span><strong id="sum-offen">0,00 €</strong></div>
+    </div>
+
+    <ul id="uebersicht-liste" class="liste"></ul>
+
+    <footer class="fuss ohne-rand">
+      <p class="grau klein mitte">Auf „Offen“ tippen, wenn jemand bezahlt hat.</p>
+      <button type="button" class="knopf-dunkel" data-gehe="liste">Zur Namensliste</button>
+    </footer>
+  </main>
+
+  <!-- ========== SCREEN 4: PREISE EINSTELLEN ========== -->
+  <main id="screen-einstellungen" class="screen" hidden>
+    <header class="kopf">
+      <button type="button" class="zurueck" data-gehe="liste">‹ Namensliste</button>
+      <h1>Preise</h1>
+      <p class="grau">Wie viel kostet ein Kilo?</p>
+    </header>
+    <div class="inhalt">
+      <section class="karte">
+        <label for="preis-speck" class="karte-titel">Speck</label>
+        <div class="eingabe-zeile">
+          <input id="preis-speck" type="text" inputmode="decimal" placeholder="0,00" autocomplete="off">
+          <span class="einheit">€ / kg</span>
+        </div>
+      </section>
+      <section class="karte">
+        <label for="preis-wurst" class="karte-titel">Wurst</label>
+        <div class="eingabe-zeile">
+          <input id="preis-wurst" type="text" inputmode="decimal" placeholder="0,00" autocomplete="off">
+          <span class="einheit">€ / kg</span>
+        </div>
+      </section>
+    </div>
+    <footer class="fuss">
+      <button type="button" id="btn-preise-speichern" class="knopf-rot">Speichern</button>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
