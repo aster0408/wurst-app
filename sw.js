@@ -1,6 +1,6 @@
 // Service Worker: speichert die App-Dateien, damit sie auch offline funktioniert.
 // Wenn du etwas an der App änderst, erhöhe die Versionsnummer (v1 -> v2).
-const CACHE = "wurst-speck-v1";
+const CACHE = "wurst-speck-v2";
 const DATEIEN = ["./", "./index.html", "./style.css", "./app.js", "./manifest.json", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", e => {

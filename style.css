@@ -303,3 +303,34 @@ input:focus { outline: 2px solid var(--rot); outline-offset: 1px; border-color: 
 .status-knopf.offen { background: #fff; color: var(--orange-text); border: 1.5px solid #D97B2B; }
 
 .leer { padding: 24px 0; text-align: center; color: var(--grau); font-size: 14px; }
+
+/* ===== Jahr & Produktgruppen ===== */
+.jahr-zeile {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.jahr-zeile label { font-size: 14px; color: var(--grau); }
+.jahr-zeile select {
+  min-height: 44px;
+  padding: 0 36px 0 12px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237F2820' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.karten { display: flex; flex-direction: column; gap: 12px; }
+.gruppe-titel {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7A4E3A;
+}
